@@ -1,0 +1,26 @@
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: "weather-backend"
+spec:
+  targets:
+  - name: weather-backend
+  peers:
+  - mtls: {}
+---
+apiVersion: "networking.istio.io/v1alpha3"
+kind: "DestinationRule"
+metadata:
+  name: "weather-backend"
+spec:
+  host: "weather-backend.default.svc.cluster.local"
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+  subsets:
+  - name: single
+    labels:
+      version: single
+  - name: multiple
+    labels:
+      version: multiple
