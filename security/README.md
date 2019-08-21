@@ -1,4 +1,4 @@
-# Rewrite - Debugging Istio - mTLS demo (NEXT '19)
+# Debugging Istio Security Deployments
 
 ## Deploy the Weather App
 
